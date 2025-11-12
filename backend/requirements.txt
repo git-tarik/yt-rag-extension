@@ -1,0 +1,10 @@
+Flask
+Flask-Cors
+python-dotenv
+langchain
+langchain-community
+langchain-core
+langchain-openai
+langchain-google-genai
+faiss-cpu
+youtube-transcript-api

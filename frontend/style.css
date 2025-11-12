@@ -1,0 +1,187 @@
+:root {
+    --primary-bg: #1a1a1a;
+    --secondary-bg: #2a2a2a;
+    --tertiary-bg: #3a3a3a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --accent-color: #007bff;
+    --accent-hover: #0056b3;
+    --error-color: #dc3545;
+    --success-color: #28a745;
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    margin: 0;
+    width: 380px;
+}
+
+.container {
+    padding: 16px;
+}
+
+h1 {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+/* --- Form Styles (Options Page) --- */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--tertiary-bg);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: var(--accent-color);
+    color: white;
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--accent-hover);
+}
+
+#status-message {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: var(--success-color);
+    height: 1.2em;
+}
+
+
+/* --- Chat UI Styles (Popup Page) --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-bg);
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--tertiary-bg);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+#close-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0 4px;
+}
+#close-btn:hover {
+    color: var(--text-primary);
+}
+
+#chat-history {
+    height: 350px;
+    overflow-y: auto;
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.message {
+    padding: 10px 14px;
+    border-radius: 16px;
+    max-width: 80%;
+    word-wrap: break-word;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.message.user {
+    background-color: var(--accent-color);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.message.bot {
+    background-color: var(--secondary-bg);
+    color: var(--text-primary);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.message.status {
+    background-color: transparent;
+    color: var(--text-secondary);
+    align-self: center;
+    text-align: center;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.chat-input-container {
+    display: flex;
+    padding: 16px;
+    border-top: 1px solid var(--tertiary-bg);
+    background-color: var(--primary-bg);
+}
+
+#chat-input {
+    flex-grow: 1;
+    padding: 10px;
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--tertiary-bg);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-right: 8px;
+}
+
+#send-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--accent-color);
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+#send-btn:hover {
+    background-color: var(--accent-hover);
+}
+
+#send-btn:disabled {
+    background-color: var(--tertiary-bg);
+    cursor: not-allowed;
+}

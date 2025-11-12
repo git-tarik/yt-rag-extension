@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG-Bot Options</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>API Key Settings</h1>
+        <form id="options-form">
+            <div class="form-group">
+                <label for="google-api-key">Google API Key</label>
+                <input type="password" id="google-api-key" name="google-api-key" required>
+            </div>
+            <div class="form-group">
+                <label for="openai-api-key">OpenAI API Key</label>
+                <input type="password" id="openai-api-key" name="openai-api-key" required>
+            </div>
+            <button type="submit" class="btn">Save Keys</button>
+        </form>
+        <div id="status-message"></div>
+    </div>
+    <script src="options.js"></script>
+</body>
+</html>
