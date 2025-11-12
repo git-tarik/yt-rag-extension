@@ -91,7 +91,7 @@ def get_general_chat_chain(google_api_key: str):
         return general_chat_chain
 
     llm = ChatGoogleGenerativeAI(
-        model="gemini-pro",
+        model="gemini-2.5-flash",
         temperature=0.7,
         google_api_key=google_api_key
     )
