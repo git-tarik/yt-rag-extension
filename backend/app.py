@@ -19,7 +19,10 @@ CORS(app)  # Allow cross-origin requests from the extension
 
 # --- In-memory Storage ---
 rag_chain_store = {}
-general_chat_chain = None
+# --- START OF CORRECTION 1 ---
+# Use a dictionary to cache chains based on API key
+general_chat_chain_cache = {}
+# --- END OF CORRECTION 1 ---
 
 # --- Helper Functions ---
 def get_video_id(url: str) -> str | None:
@@ -84,12 +87,21 @@ def parse_auth_header(header: str):
         return None, None
 
 # --- RAG & Chat Chain Creation ---
+# --- START OF CORRECTION 2 ---
 def get_general_chat_chain(google_api_key: str):
-    """Creates a simple, non-RAG chain for general conversation."""
-    global general_chat_chain
-    if general_chat_chain:
-        return general_chat_chain
+    """
+    Creates or retrieves a cached simple, non-RAG chain 
+    for general conversation.
+    """
+    global general_chat_chain_cache
+    
+    # Check cache for a chain built with this specific API key
+    if google_api_key in general_chat_chain_cache:
+        print("Returning cached general chat chain.")
+        return general_chat_chain_cache[google_api_key]
 
+    # If not in cache, build a new one
+    print("Building new general chat chain...")
     llm = ChatGoogleGenerativeAI(
         model="gemini-2.5-flash",
         temperature=0.7,
@@ -97,8 +109,12 @@ def get_general_chat_chain(google_api_key: str):
     )
     prompt = PromptTemplate.from_template("You are a helpful assistant. Answer the following question: {question}")
     
-    general_chat_chain = prompt | llm | StrOutputParser()
-    return general_chat_chain
+    new_chain = prompt | llm | StrOutputParser()
+    
+    # Store the new chain in the cache, keyed by the API key
+    general_chat_chain_cache[google_api_key] = new_chain
+    return new_chain
+# --- END OF CORRECTION 2 ---
 
 def create_rag_chain(transcript: str, google_api_key: str, openai_api_key: str):
     """Creates a RAG chain with OpenAI embeddings + Google Gemini LLM."""
@@ -171,6 +187,11 @@ def load_video():
     try:
         rag_chain = create_rag_chain(transcript, google_key, openai_key)
         rag_chain_store[video_id] = rag_chain
+
+        print("Pre-initializing general chat chain...")
+        get_general_chat_chain(google_key) # This creates and caches the chain
+        print("✅ General chat chain ready.")
+        
         return jsonify({"status": "loaded", "video_id": video_id}), 200
     except Exception as e:
         return jsonify({"error": f"Failed to create RAG chain: {e}"}), 500
