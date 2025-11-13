@@ -7,8 +7,21 @@
 </head>
 <body>
     <div class="header">
-        <h1>YouTube RAG-Bot</h1>
+        <h1>YT-CHAT-AI</h1>
         <button id="close-btn" title="Close">&times;</button>
+    </div>
+
+    <div id="lang-selector-container">
+        <label for="language-select">Language:</label>
+        <select id="language-select">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
+            <option value="ja">Japanese</option>
+        </select>
+        <button id="start-chat-btn">Start Chat</button>
     </div>
 
     <div id="chat-history">
@@ -17,7 +30,7 @@
 
     <div class="chat-input-container">
         <input type="text" id="chat-input" placeholder="Ask a question...">
-        <button id="send-btn">Send</button>
+        <button id="send-btn" title="Send">&#10148;</button>
     </div>
 
     <script src="popup.js"></script>
