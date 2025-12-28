@@ -162,16 +162,7 @@ pip install -r requirements.txt
 - faiss-cpu - Vector similarity search
 - youtube-transcript-api - YouTube transcript extraction
 
-#### 2.4 Configure environment variables
-
-Create a `.env` file in the `backend/` directory with your API keys:
-
-```env
-GOOGLE_API_KEY=your_google_api_key_here
-OPENAI_API_KEY=your_openai_api_key_here
-```
-
-#### 2.5 Run the Flask server
+#### 2.4 Run the Flask server
 
 ```bash
 python app.py
@@ -184,7 +175,7 @@ You should see:
 
 ✅ **Backend is ready!** Keep this terminal open.
 
-### Step 3: Load the Extension in Chrome
+### Step 3: Load the Extension in Chrome and Configure API Keys
 
 #### 3.1 Open Chrome Extensions Page
 1. Open Google Chrome
@@ -198,14 +189,15 @@ You should see:
 
 ✅ **Extension is loaded!** You should see "YT-CHAT-AI" in your extensions.
 
-### Step 4: Configure API Keys
+#### 3.3 Configure API Keys in the Extension
 
 1. Click the **YT-CHAT-AI** extension icon in Chrome toolbar
-2. Look for settings or options button
-3. Enter your:
-   - Google API Key
-   - OpenAI API Key (optional)
+2. Click the **options** or **settings** button to open the options page
+3. Enter your API keys:
+   - **Google API Key** - Required for Google Generative AI (Gemini)
+   - **OpenAI API Key** - Required for embeddings
 4. Click **"Save Keys"**
+5. Keys are stored locally in the extension's storage
 
 ✅ **You're ready to use the extension!**
 
