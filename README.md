@@ -1,6 +1,20 @@
 # YouTube RAG-Bot Extension
 
+<div align="center">
+
 A powerful Chrome extension that lets you chat with YouTube videos using AI-powered Retrieval-Augmented Generation (RAG). Extract transcripts from YouTube videos and ask intelligent questions about their content using Google Generative AI and LangChain.
+
+### 🛠️ Tech Stack
+
+![Python](https://img.shields.io/badge/Python-3.9+-blue?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-2.0+-green?style=for-the-badge&logo=flask&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=for-the-badge&logo=javascript&logoColor=black)
+![Chrome Extension](https://img.shields.io/badge/Chrome%20Extension-Manifest%20V3-blue?style=for-the-badge&logo=googlechrome&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-AI%20Orchestration-orange?style=for-the-badge)
+![Google AI](https://img.shields.io/badge/Google%20Gemini-AI%20Model-blue?style=for-the-badge&logo=google&logoColor=white)
+![FAISS](https://img.shields.io/badge/FAISS-Vector%20Search-red?style=for-the-badge)
+
+</div>
 
 ---
 
@@ -34,13 +48,16 @@ The project consists of two main components:
 
 ## ✨ Features
 
-- 🎬 **YouTube Transcript Extraction**: Automatically fetches transcripts from YouTube videos
-- 🤖 **AI-Powered Q&A**: Uses Google Generative AI for intelligent responses
-- 📚 **RAG Pipeline**: Implements Retrieval-Augmented Generation using LangChain and FAISS
-- 🌍 **Multi-language Support**: Supports 6 different languages for transcripts
-- 💾 **In-memory Caching**: Efficiently caches embeddings and chains for improved performance
-- 🔐 **Secure API Keys**: Stores Google and OpenAI API keys locally in the extension
-- 🎨 **Clean UI**: Intuitive chat interface with language selector
+| Icon | Feature | Description |
+|------|---------|-------------|
+| 🎬 | **YouTube Transcript Extraction** | Automatically fetches transcripts from YouTube videos using youtube-transcript-api |
+| 🤖 | **AI-Powered Q&A** | Uses Google Generative AI (Gemini) for intelligent responses |
+| 📚 | **RAG Pipeline** | Implements Retrieval-Augmented Generation using LangChain and FAISS vector search |
+| 🌍 | **Multi-language Support** | Supports 6 different languages for transcripts (EN, HI, ES, FR, DE, JA) |
+| 💾 | **In-memory Caching** | Efficiently caches embeddings and chains for improved performance |
+| 🔐 | **Secure API Keys** | Stores Google and OpenAI API keys locally in the extension storage |
+| 🎨 | **Clean UI** | Intuitive chat interface with language selector and message history |
+| ⚡ | **CORS Support** | Cross-origin requests enabled for seamless extension-backend communication |
 
 ---
 
@@ -66,27 +83,27 @@ YT-RAG-EXTENSION/
 
 ```
 
-### Backend (`backend/`)
+### 🔙 Backend (`backend/`)
 
-| File | Purpose |
-|------|---------|
-| `app.py` | Core Flask application implementing RAG pipeline, video transcript fetching, and API endpoints |
-| `requirements.txt` | Python package dependencies |
+| File | Purpose | Tech Stack |
+|------|---------|-----------|
+| `app.py` | Core Flask application implementing RAG pipeline, video transcript fetching, and API endpoints | ![Python](https://img.shields.io/badge/Python-3.9+-blue?style=flat-square) ![Flask](https://img.shields.io/badge/Flask-green?style=flat-square) |
+| `requirements.txt` | Python package dependencies | ![Pip](https://img.shields.io/badge/Pip-Packages-blue?style=flat-square) |
 
-**Key Endpoints:**
+**🔌 Key Endpoints:**
 - `POST /load_video`: Accepts YouTube URL, extracts transcript, creates embeddings
 - `POST /chat`: Processes user questions against the video transcript using RAG
 
-### Frontend (`frontend/`)
+### 🎨 Frontend (`frontend/`)
 
-| File | Purpose |
-|------|---------|
-| `manifest.json` | Chrome extension manifest with permissions and entry points |
-| `popup.html` | Chat interface with language selector and message history |
-| `popup.js` | Handles extension popup interactions and API communication |
-| `options.html` | Settings page for storing API keys |
-| `options.js` | Manages API key storage and retrieval |
-| `style.css` | Styling for popup and options pages |
+| File | Purpose | Tech Stack |
+|------|---------|-----------|
+| `manifest.json` | Chrome extension manifest with permissions and entry points | ![JSON](https://img.shields.io/badge/Manifest%20V3-blue?style=flat-square) |
+| `popup.html` | Chat interface with language selector and message history | ![HTML](https://img.shields.io/badge/HTML5-orange?style=flat-square&logo=html5) |
+| `popup.js` | Handles extension popup interactions and API communication | ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=flat-square&logo=javascript) |
+| `options.html` | Settings page for storing API keys | ![HTML](https://img.shields.io/badge/HTML5-orange?style=flat-square&logo=html5) |
+| `options.js` | Manages API key storage and retrieval | ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=flat-square&logo=javascript) |
+| `style.css` | Styling for popup and options pages | ![CSS](https://img.shields.io/badge/CSS3-blue?style=flat-square&logo=css3) |
 
 ---
 
@@ -94,18 +111,19 @@ YT-RAG-EXTENSION/
 
 Before you begin, ensure you have the following installed:
 
-1. **Python 3.9+** - [Download here](https://www.python.org/downloads/)
-2. **pip** - Python package manager (comes with Python)
-3. **Google Chrome** - For running the extension
-4. **Git** - For cloning the repository (optional)
+| Requirement | Version | Download |
+|-------------|---------|----------|
+| 🐍 **Python** | 3.9+ | [Download](https://www.python.org/downloads/) |
+| 📦 **pip** | Latest | Comes with Python |
+| 🌐 **Google Chrome** | Latest | [Download](https://www.google.com/chrome/) |
+| 🔧 **Git** | Latest | [Download](https://git-scm.com/) (Optional) |
 
 ### Required API Keys
 
-You'll need to obtain:
-- **Google API Key** - For Google Generative AI (Gemini)
-  - [Get your API key here](https://makersuite.google.com/app/apikey)
-- **OpenAI API Key** - (Optional, for embeddings if needed)
-  - [Get your API key here](https://platform.openai.com/api-keys)
+| API | Purpose | Get Key |
+|-----|---------|---------|
+| 🔑 **Google API Key** | Google Generative AI (Gemini) | [Get Key](https://makersuite.google.com/app/apikey) |
+| 🔓 **OpenAI API Key** | Embeddings & LLM operations | [Get Key](https://platform.openai.com/api-keys) |
 
 ---
 
@@ -152,15 +170,19 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-**Dependencies:**
-- Flask - Web framework
-- Flask-Cors - Cross-origin resource sharing
-- python-dotenv - Environment variable management
-- langchain & langchain-community - LLM orchestration
-- langchain-openai - OpenAI integration
-- langchain-google-genai - Google Generative AI integration
-- faiss-cpu - Vector similarity search
-- youtube-transcript-api - YouTube transcript extraction
+**🔧 Dependencies:**
+
+| Package | Purpose | Badge |
+|---------|---------|-------|
+| **Flask** | Web framework for REST API | ![Flask](https://img.shields.io/badge/Flask-2.0+-green?style=flat-square&logo=flask) |
+| **Flask-Cors** | Cross-origin resource sharing | ![CORS](https://img.shields.io/badge/CORS-Enabled-blue?style=flat-square) |
+| **python-dotenv** | Environment variable management | ![Env](https://img.shields.io/badge/.env-Config-blue?style=flat-square) |
+| **langchain** | LLM orchestration framework | ![LangChain](https://img.shields.io/badge/LangChain-AI%20Framework-orange?style=flat-square) |
+| **langchain-community** | Community integrations for LangChain | ![Community](https://img.shields.io/badge/Community-Integrations-orange?style=flat-square) |
+| **langchain-openai** | OpenAI integration | ![OpenAI](https://img.shields.io/badge/OpenAI-LLM-red?style=flat-square) |
+| **langchain-google-genai** | Google Generative AI integration | ![Google](https://img.shields.io/badge/Google%20Gemini-AI-blue?style=flat-square&logo=google) |
+| **faiss-cpu** | Vector similarity search | ![FAISS](https://img.shields.io/badge/FAISS-Vector%20DB-red?style=flat-square) |
+| **youtube-transcript-api** | YouTube transcript extraction | ![YouTube](https://img.shields.io/badge/YouTube-Transcripts-red?style=flat-square&logo=youtube) |
 
 #### 2.4 Run the Flask server
 
