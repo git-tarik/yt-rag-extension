@@ -1,5 +1,38 @@
 # Python compiled files
 *.pyc
+*.pyo
+*.pyd
+.Python
 
 # Python cache directories
 __pycache__/
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Node modules (if used in frontend)
+node_modules/
+
+# OS files
+Thumbs.db
